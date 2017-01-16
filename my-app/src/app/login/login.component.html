@@ -1,0 +1,20 @@
+<main>
+  <h2>Login</h2>
+  <form (ngSubmit)="loginUser(user)">
+    <div class="form-group">
+      <label for="username">Email</label>
+      <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+
+  </form>
+
+  <p *ngIf="message">{{message}}</p>
+
+</main>

@@ -1,0 +1,22 @@
+<header class="container">
+  <h1><a routerLink="/">Doppia East</a></h1>
+  <nav>
+    <ul class="nav nav-pills">
+      <li *ngIf="!user">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="!user">
+        <a routerLink="/register">Register</a>
+      </li>
+      <li *ngIf="user"><button (click)="logout()" class="btn">Logout</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+
+  <p *ngIf="user">Logged in as: {{user.email}}</p>
+  <p *ngIf="!user">Not logged in</p>
+
+  <router-outlet></router-outlet>
+</div>
