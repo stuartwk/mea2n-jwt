@@ -1,1 +1,1 @@
-# MEA2N + Users with JWT
+# MEA2N + User Auth with JWT

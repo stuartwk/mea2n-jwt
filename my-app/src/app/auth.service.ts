@@ -16,7 +16,6 @@ export class AuthService {
   constructor(public http: Http) { }
 
   setUser(user: User) {
-    console.log('inside setUser');
     this.userSource.next(user);
   }
 
@@ -45,11 +44,7 @@ export class AuthService {
   verify(): Observable<Object> {
 
     let currUser = JSON.parse(localStorage.getItem('currentUser')); 
-
-    console.log('currUser is', currUser);
     let token = ( currUser && 'token' in currUser) ? currUser.token : this.token;
-
-    console.log('token is', token);
     let headers = new Headers({ 'x-access-token': token });
     let options = new RequestOptions({ headers: headers });
     return this.http.get(`${this.base_url}/check-state`, options).map( res => this.parseRes(res) );
@@ -59,7 +54,6 @@ export class AuthService {
   setToken(res){
     let body = JSON.parse(res['_body']);
     if( body['success'] == true ){
-      console.log('res success is true');
       this.token = body['token'];
       localStorage.setItem('currentUser', JSON.stringify({ 
         email: body['user']['email'], 
@@ -70,7 +64,6 @@ export class AuthService {
   }
 
   parseRes(res){
-    console.log('res is', res);
     let body = JSON.parse(res['_body']);
     return body;
   }

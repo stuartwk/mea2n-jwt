@@ -24,13 +24,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('this.user is', this.user);
 
-    this.authService.verify().subscribe( (res) => {
-
-      this.message = res['message'];
-
-    });
+    //example of verification
+    this.authService.verify().subscribe( (res) => this.message = res['message']);
   }
 
   ngOnDestroy() {

@@ -99,30 +99,4 @@ router.post('/login', (req, res) => {
 
 });
 
-// router.use( (req, res, next) => {
-  
-//   let token = req.body.token || req.query.token || req.headers['x-access-token'];
-
-//   if( token ) {
-
-//     jwt.verify(token, config.secret, (err, decoded) => {      
-//       if (err) {
-//         return res.json({ logged_in: false, message: 'Failed to authenticate token.' });    
-//       } else {
-//         // if everything is good, save to request for use in other routes
-//         req.decoded = decoded;   
-//         next();
-//       }
-//     });
-
-//   }  else {
-
-//     // if there is no token
-//     // return an error
-//     next();
-    
-//   }
-
-// });
-
 module.exports = router;
