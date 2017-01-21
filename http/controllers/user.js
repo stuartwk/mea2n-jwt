@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
       expiresIn : 60*60*24
     });
     let content = {
-      user: reqUser,
+      user: user,
       success: true,
       message: 'You logged in',
       token: token
